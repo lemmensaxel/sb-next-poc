@@ -23,6 +23,7 @@ export default function Card(props: CardProps) {
         className="rounded-t object-cover"
         sizes="384x192"
         fill
+        quality={50}
         priority // Load image immediately because it is most likely to be above the fold
       />
     </div>
