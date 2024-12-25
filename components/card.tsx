@@ -21,7 +21,9 @@ export default function Card(props: CardProps) {
         alt={props.image.alt}
         src={props.image.src}
         className="rounded-t object-cover"
+        sizes="384x192"
         fill
+        priority // Load image immediately because it is most likely to be above the fold
       />
     </div>
   );
