@@ -26,10 +26,11 @@ export default function Header() {
       start={() => (
         <Image
           src="/logo_studio.svg"
-          width={150}
-          height={64}
+          width={100}
+          height={60}
           alt="Logo of AE Studio"
           priority
+          className="w-auto h-auto"
         />
       )}
     />
