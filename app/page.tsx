@@ -1,5 +1,6 @@
 import Hero from "@/components/hero";
 import CardGrid from "@/components/card-grid";
+import Head from "next/head";
 
 const projects = [
   {
@@ -34,9 +35,27 @@ const projects = [
   },
 ];
 
+// Inject <head>-metadata using the next/head component
+// See: https://nextjs.org/docs/pages/api-reference/components/head
+// See: https://nextjs.org/learn-pages-router/seo/rendering-and-ranking/metadata
+// See: https://ogp.me/
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>Nextjs + Storyblok POC | Home</title>
+        <meta name="robots" content="all" key="robots" />
+        <meta
+          name="description"
+          content="This is a boilerplate for AE Studio projects using Next.js and Storyblok"
+          key="desc"
+        />
+        <meta property="og:title" content="Nextjs + Storyblok POC | Home" />
+        <meta
+          property="og:description"
+          content="This is a boilerplate for AE Studio projects using Next.js and Storyblok"
+        />
+      </Head>
       <Hero
         title="Nextjs + Storyblok POC"
         subtitle="A boilerplate for AE Studio projects"
