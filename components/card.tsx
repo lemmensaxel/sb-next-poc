@@ -7,7 +7,10 @@ export interface CardProps {
   id: string;
   title: string;
   subTitle?: string;
-  image: string;
+  image: {
+    src: string;
+    alt: string;
+  };
   body: string;
 }
 
@@ -15,11 +18,10 @@ export default function Card(props: CardProps) {
   const header = (
     <div className="h-48 relative">
       <Image
-        alt="Card"
-        src={props.image}
-        className="rounded-t"
+        alt={props.image.alt}
+        src={props.image.src}
+        className="rounded-t object-cover"
         fill
-        objectFit="cover"
       />
     </div>
   );
