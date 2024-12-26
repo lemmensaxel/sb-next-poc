@@ -1,3 +1,4 @@
+import { transform } from "next/dist/build/swc/generated-native";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -11,6 +12,15 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      animation: {
+        fade: "fadeIn .3s ease-in-out",
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: "0%", transform: "translateY(10px)" },
+          to: { opacity: "100%", transform: "translateY(0)" },
+        },
       },
     },
   },

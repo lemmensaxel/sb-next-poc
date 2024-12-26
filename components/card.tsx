@@ -28,7 +28,7 @@ export default async function Card(props: CardProps) {
   );
 
   return (
-    <div className="card flex justify-content-center">
+    <div className="card flex justify-content-center animate-fade">
       <PrimeCard
         title={props.title}
         subTitle={props.subTitle}
