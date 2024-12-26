@@ -20,6 +20,7 @@ export default function CardGrid(props: CardGridProps) {
             image={card.image}
             body={card.body}
             subTitle={card.subTitle}
+            url={card.url}
           />
         ))}
       </div>

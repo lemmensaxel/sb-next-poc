@@ -11,3 +11,7 @@
   @tailwind components;
   @tailwind utilities;
 }
+
+.p-menubar {
+  @apply z-20;
+}
