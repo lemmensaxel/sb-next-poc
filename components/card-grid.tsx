@@ -1,5 +1,3 @@
-"use client";
-
 import Card, { CardProps } from "./card";
 
 interface CardGridProps {
