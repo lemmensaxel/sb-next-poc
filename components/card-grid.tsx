@@ -1,27 +1,32 @@
-import Card, { CardProps } from "./card";
+import {
+  SbBlokData,
+  storyblokEditable,
+  StoryblokServerComponent,
+} from "@storyblok/react/rsc";
+import { SbCardPageData } from "./card";
 
 interface CardGridProps {
+  blok: SbPageData;
+}
+
+interface SbPageData extends SbBlokData {
   title?: string;
   subtitle?: string;
-  cards: CardProps[];
+  cards: SbCardPageData[];
 }
 
 export default function CardGrid(props: CardGridProps) {
   return (
-    <section className="flex flex-col justify-center items-center py-16 min-h-96">
-      <h1 className="text-4xl font-bold leading-relaxed">{props.title}</h1>
-      <h2 className="text-lg mt-1">{props.subtitle}</h2>
+    <section
+      {...storyblokEditable(props.blok)}
+      key={props.blok._uid}
+      className="flex flex-col justify-center items-center py-16 min-h-96"
+    >
+      <h1 className="text-4xl font-bold leading-relaxed">{props.blok.title}</h1>
+      <h2 className="text-lg mt-1">{props.blok.subtitle}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 m-6">
-        {props.cards.map((card) => (
-          <Card
-            id={card.id}
-            key={"card-" + card.id}
-            title={card.title}
-            image={card.image}
-            body={card.body}
-            subTitle={card.subTitle}
-            url={card.url}
-          />
+        {props.blok.cards.map((card) => (
+          <StoryblokServerComponent blok={card} key={card._uid} />
         ))}
       </div>
     </section>
