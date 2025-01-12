@@ -35,6 +35,26 @@ export default async function Card(props: CardProps) {
     </div>
   );
 
+  // If required properties are missing, render a dummy card
+  if (
+    !props.blok.image.filename ||
+    !props.blok.image.alt ||
+    !props.blok.title ||
+    !props.blok.body
+  ) {
+    return (
+      <div
+        {...storyblokEditable(props.blok)}
+        key={props.blok._uid}
+        className="card flex justify-content-center animate-fade"
+      >
+        <div className="w-96 h-96 bg-gray-100 flex justify-center items-center text-center italic">
+          Vul alle verplichte velden van de Card component in!
+        </div>
+      </div>
+    );
+  }
+
   if (!props.blok.url?.url) {
     return (
       <div
@@ -46,9 +66,9 @@ export default async function Card(props: CardProps) {
           title={props.blok.title}
           subTitle={props.blok.subTitle}
           header={header}
-          className="max-w-sm overflow-hidden"
+          className="overflow-hidden w-96 h-96"
         >
-          <p className="m-0">{props.blok.body}</p>
+          <p className="m-0 line-clamp-3">{props.blok.body}</p>
         </PrimeCard>
       </div>
     );
