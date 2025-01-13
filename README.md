@@ -3,7 +3,9 @@
 - Live preview route V
 - All components should work with optional props V
 - Slug prediction for static rendering V
-- Render blogposts
+- Render blogposts V
+- Codeblock component
+- Blogpost grid component
 - Use SB image optimization
 - Storyblok CLI to pull & push components and stories
 - Extra components
