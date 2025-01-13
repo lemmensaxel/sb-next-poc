@@ -12,6 +12,7 @@ export async function POST(request: NextRequest) {
   }
 
   const correctSlug = data.full_slug === "home" ? "/" : `/${data.full_slug}`;
+  console.log(`Revalidating path: ${correctSlug}`);
   revalidatePath(correctSlug);
 
   return Response.json({ revalidated: true, now: Date.now() });
