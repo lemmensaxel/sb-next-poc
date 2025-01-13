@@ -1,3 +1,4 @@
+import BlogPost from "@/components/blog-post";
 import Card from "@/components/card";
 import CardGrid from "@/components/card-grid";
 import Hero from "@/components/hero";
@@ -11,5 +12,6 @@ export const getStoryblokApi = storyblokInit({
     card: Card,
     hero: Hero,
     "card grid": CardGrid,
+    blogpost: BlogPost,
   },
 });
