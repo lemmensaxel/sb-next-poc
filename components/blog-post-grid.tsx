@@ -30,7 +30,6 @@ export default async function BlogPostGrid(props: CardGridProps) {
       (await fetchStoryByGuid("published", props.blok.posts[i])).story
     );
   }
-  console.log(posts, "posts");
   return (
     <section
       {...storyblokEditable(props.blok)}
