@@ -14,6 +14,16 @@ interface PageProps {
 }
 
 const Page: React.FunctionComponent<PageProps> = ({ blok }) => {
+  if (!blok.body) {
+    return (
+      <main className="flex items-center justify-center h-full w-full">
+        <p className="text-center">
+          Voeg bloks toe aan de pagina om ze weer te geven.
+        </p>
+      </main>
+    );
+  }
+
   return (
     <main {...storyblokEditable(blok)}>
       {blok.body.map((nestedBlok) => (
