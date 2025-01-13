@@ -2,6 +2,7 @@ import { StoryblokStory } from "@storyblok/react/rsc";
 import { fetchStory } from "@/utils/fetchStory";
 import { Metadata } from "next";
 import { fetchLinks } from "@/utils/fetchLinks";
+import { notFound } from "next/navigation";
 // import { Metadata, ResolvingMetadata } from "next";
 
 type Params = Promise<{ slug?: string[] }>;
@@ -17,6 +18,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // fetch data
   const { story } = await fetchStory("published", slug);
+
+  if (!story) {
+    return {};
+  }
 
   return {
     title: story.content.seo.title,
@@ -59,7 +64,7 @@ export default async function Home({ params }: { params: Params }) {
   const { story } = await fetchStory("published", slug);
 
   if (!story) {
-    return <div>Page not found</div>;
+    notFound();
   }
 
   return <StoryblokStory story={story} />;
