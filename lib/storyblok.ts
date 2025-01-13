@@ -5,6 +5,7 @@ import CardGrid from "@/components/card-grid";
 import CodeBlock from "@/components/code-block";
 import Hero from "@/components/hero";
 import Page from "@/components/page";
+import RichTextBlok from "@/components/rich-text-blok";
 import { storyblokInit } from "@storyblok/react/rsc";
 
 export const getStoryblokApi = storyblokInit({
@@ -17,5 +18,6 @@ export const getStoryblokApi = storyblokInit({
     blogpost: BlogPost,
     "blogpost-grid": BlogPostGrid,
     codeblock: CodeBlock,
+    "rich-text-blok": RichTextBlok,
   },
 });
