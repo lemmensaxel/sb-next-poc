@@ -38,7 +38,7 @@ const BlogPost: React.FunctionComponent<PageProps> = ({ blok }) => {
         }}
       />
       <div
-        className="prose md:prose-lg mt-16 max-w-none"
+        className="prose md:prose-lg mt-16 px-10"
         dangerouslySetInnerHTML={{
           __html: renderRichText(blok.inhoud) as string,
         }}
