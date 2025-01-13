@@ -34,7 +34,7 @@ const BlogPost: React.FunctionComponent<PageProps> = ({ blok }) => {
   }
 
   return (
-    <main {...storyblokEditable(blok)}>
+    <main {...storyblokEditable(blok)} className="w-full">
       <Hero
         blok={{
           title: blok.titel,
@@ -42,12 +42,14 @@ const BlogPost: React.FunctionComponent<PageProps> = ({ blok }) => {
           image: blok.image,
         }}
       />
-      <div
-        className="prose md:prose-lg mt-16 px-10"
-        dangerouslySetInnerHTML={{
-          __html: renderRichText(blok.inhoud) as string,
-        }}
-      ></div>
+      <div className="w-full flex justify-center items-center">
+        <div
+          className="w-full prose md:prose-lg mt-16 px-10"
+          dangerouslySetInnerHTML={{
+            __html: renderRichText(blok.inhoud) as string,
+          }}
+        ></div>
+      </div>
     </main>
   );
 };

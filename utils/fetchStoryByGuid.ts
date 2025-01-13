@@ -1,16 +1,14 @@
 import { ISbStoryData } from "@storyblok/react/rsc";
 import { getStoryblokApi } from "@/lib/storyblok";
 
-export const fetchStory = async (
+export const fetchStoryByGuid = async (
   version: "draft" | "published",
-  slug?: string[]
+  guid: string
 ) => {
   getStoryblokApi();
-  const correctSlug = `/${slug ? slug.join("/") : "home"}`;
-
   return fetch(
     `
-    https://api.storyblok.com/v2/cdn/stories${correctSlug}?version=${version}&token=${process.env.NEXT_PUBLIC_STORYBLOK_TOKEN}
+    https://api.storyblok.com/v2/cdn/stories/${guid}?find_by=uuid&version=${version}&token=${process.env.NEXT_PUBLIC_STORYBLOK_TOKEN}
 `,
     {
       next: { tags: ["cms"] },
