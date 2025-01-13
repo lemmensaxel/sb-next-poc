@@ -10,6 +10,10 @@ import Hero from "./hero";
 interface SbPageData extends SbBlokData {
   titel: string;
   subtitel?: string;
+  image?: {
+    filename?: string;
+    alt?: string;
+  };
   inhoud: ISbRichtext;
 }
 
@@ -35,6 +39,7 @@ const BlogPost: React.FunctionComponent<PageProps> = ({ blok }) => {
         blok={{
           title: blok.titel,
           subtitle: blok.subtitel,
+          image: blok.image,
         }}
       />
       <div
