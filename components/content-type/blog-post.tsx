@@ -5,7 +5,7 @@ import {
   storyblokEditable,
 } from "@storyblok/react/rsc";
 import React from "react";
-import Hero from "./hero";
+import Hero from "../nestable/hero";
 
 interface SbPageData extends SbBlokData {
   titel: string;
