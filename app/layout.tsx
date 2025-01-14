@@ -1,7 +1,7 @@
 import { PrimeReactProvider } from "primereact/api";
 import "./globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import Header from "@/components/nestable/header";
+import Footer from "@/components/nestable/footer";
 import StoryblokProvider from "@/components/storyblok-provider";
 
 export default function RootLayout({

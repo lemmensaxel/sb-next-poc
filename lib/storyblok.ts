@@ -1,12 +1,12 @@
-import BlogPost from "@/components/blog-post";
-import BlogPostGrid from "@/components/blog-post-grid";
-import Card from "@/components/card";
-import CardGrid from "@/components/card-grid";
-import CodeBlock from "@/components/code-block";
-import Hero from "@/components/hero";
-import Page from "@/components/page";
-import RichTextBlok from "@/components/rich-text-blok";
+import Card from "@/components/nestable/card";
+import CardGrid from "@/components/nestable/card-grid";
+import CodeBlock from "@/components/nestable/code-block";
+import Hero from "@/components/nestable/hero";
+import Page from "@/components/content-type/page";
+import RichTextBlok from "@/components/nestable/rich-text-blok";
 import { storyblokInit } from "@storyblok/react/rsc";
+import BlogPostGrid from "@/components/nestable/blog-post-grid";
+import BlogPost from "@/components/content-type/blog-post";
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
