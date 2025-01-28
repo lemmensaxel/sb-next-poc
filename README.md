@@ -4,8 +4,8 @@
 - All components should work with optional props V
 - Slug prediction for static rendering V
 - Render blogposts V
-- Codeblock component
-- Blogpost grid component
-- Use SB image optimization
+- Codeblock component V
+- Blogpost grid component V
+- Use SB image optimization 
 - Storyblok CLI to pull & push components and stories
-- Extra components
+- Extra components V
