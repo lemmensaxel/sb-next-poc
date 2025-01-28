@@ -39,24 +39,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export const dynamicParams = true;
 
 // Let Next.js know which pages to statically generate
+// export async function generateStaticParams() {
+//   const { links } = await fetchLinks("published");
+//   const paths: { slug: string[] }[] = [];
+
+//   Object.keys(links).forEach((linkKey) => {
+//     const link = links[linkKey];
+
+//     // Skip if the link is a folder or if the slug is 'home'
+//     if (link.is_folder || link.slug === "home") {
+//       return;
+//     }
+
+//     const slug = link.slug;
+//     const splitSlug = slug.split("/");
+//     paths.push({ slug: splitSlug });
+//   });
+
+//   return paths;
+// }
+
+// Force the page to be static, but without prerendering at build time,
+// using SSR only for the first request and SSG for the following requests.
 export async function generateStaticParams() {
-  const { links } = await fetchLinks("published");
-  const paths: { slug: string[] }[] = [];
-
-  Object.keys(links).forEach((linkKey) => {
-    const link = links[linkKey];
-
-    // Skip if the link is a folder or if the slug is 'home'
-    if (link.is_folder || link.slug === "home") {
-      return;
-    }
-
-    const slug = link.slug;
-    const splitSlug = slug.split("/");
-    paths.push({ slug: splitSlug });
-  });
-
-  return paths;
+  return [];
 }
 
 export default async function Home({ params }: { params: Params }) {

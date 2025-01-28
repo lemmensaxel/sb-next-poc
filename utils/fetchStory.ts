@@ -8,13 +8,30 @@ export const fetchStory = async (
   getStoryblokApi();
   const correctSlug = `/${slug ? slug.join("/") : "home"}`;
 
-  return fetch(
-    `
-    https://api.storyblok.com/v2/cdn/stories${correctSlug}?version=${version}&token=${process.env.NEXT_PUBLIC_STORYBLOK_TOKEN}
-`,
+  const response = await getStoryblokApi().getStory(
+    correctSlug,
     {
-      next: { tags: ["cms"] },
+      version: version,
+    },
+    {
       cache: version === "published" ? "default" : "no-store",
     }
-  ).then((res) => res.json()) as Promise<{ story: ISbStoryData }>;
+  );
+
+  console.log(
+    "Storyblok GET story response",
+    response?.data?.story?.content?.body
+  );
+
+  return response?.data as { story: ISbStoryData };
+
+  //   return fetch(
+  //     `
+  //     https://api.storyblok.com/v2/cdn/stories${correctSlug}?version=${version}&token=${process.env.NEXT_PUBLIC_STORYBLOK_TOKEN}
+  // `,
+  //     {
+  //       next: { tags: ["cms"] },
+  //       cache: version === "published" ? "default" : "no-store",
+  //     }
+  //   ).then((res) => res.json()) as Promise<{ story: ISbStoryData }>;
 };
