@@ -70,7 +70,7 @@ export async function generateStaticParams() {
 
 export default async function Home({ params }: { params: Params }) {
   const slug = (await params).slug;
-  const { story } = await fetchStory(slug?.join("/") || "/");
+  const { story } = await fetchStory(`/${slug ? slug.join("/") : "home"}`);
 
   if (!story) {
     notFound();
