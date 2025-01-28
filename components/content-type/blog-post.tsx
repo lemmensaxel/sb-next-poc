@@ -24,7 +24,10 @@ interface PageProps {
 const BlogPost: React.FunctionComponent<PageProps> = ({ blok }) => {
   if (!blok.titel || !blok.inhoud) {
     return (
-      <main className="flex items-center justify-center h-full w-full">
+      <main
+        {...storyblokEditable(blok)}
+        className="flex items-center justify-center h-full w-full"
+      >
         <p className="text-center">
           Vul minstens de titel en inhoud van de blogpost in om deze weer te
           geven.

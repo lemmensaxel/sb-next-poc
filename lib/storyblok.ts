@@ -7,6 +7,7 @@ import RichTextBlok from "@/components/nestable/rich-text-blok";
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 import BlogPostGrid from "@/components/nestable/blog-post-grid";
 import BlogPost from "@/components/content-type/blog-post";
+import FallbackComponent from "@/components/fallback";
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
@@ -24,4 +25,6 @@ export const getStoryblokApi = storyblokInit({
     codeblock: CodeBlock,
     "rich-text-blok": RichTextBlok,
   },
+  enableFallbackComponent: true,
+  customFallbackComponent: FallbackComponent,
 });

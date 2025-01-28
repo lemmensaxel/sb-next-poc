@@ -1,17 +1,13 @@
-import { SbBlokData } from "@storyblok/react/rsc";
-import React from "react";
+import { SbBlokData, storyblokEditable } from "@storyblok/react/rsc";
 
-interface SbPageData extends SbBlokData {
-  body: SbBlokData[];
-}
+type Props = SbBlokData;
 
-interface PageProps {
-  blok: SbPageData;
-}
-
-const Page: React.FunctionComponent<PageProps> = ({ blok }) => {
-  console.log(blok, "blok");
-  return <p>Component not implemented</p>;
+const FallbackComponent = (blok: Props) => {
+  return (
+    <h2 {...storyblokEditable(blok)}>
+      This component does not exists: {blok.component}
+    </h2>
+  );
 };
 
-export default Page;
+export default FallbackComponent;
