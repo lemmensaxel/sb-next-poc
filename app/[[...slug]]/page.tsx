@@ -1,7 +1,7 @@
 import { StoryblokStory } from "@storyblok/react/rsc";
 import { fetchStory } from "@/utils/fetchStory";
 import { Metadata } from "next";
-import { fetchLinks } from "@/utils/fetchLinks";
+// import { fetchLinks } from "@/utils/fetchLinks";
 import { notFound } from "next/navigation";
 // import { Metadata, ResolvingMetadata } from "next";
 
