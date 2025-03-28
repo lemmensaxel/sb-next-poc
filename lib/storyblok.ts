@@ -5,7 +5,7 @@ import Hero from "@/components/nestable/hero";
 import Page from "@/components/content-type/page";
 import RichTextBlok from "@/components/nestable/rich-text-blok";
 import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
-import BlogPostGrid from "@/components/nestable/blog-post-grid";
+// import BlogPostGrid from "@/components/nestable/blog-post-grid";
 import BlogPost from "@/components/content-type/blog-post";
 import FallbackComponent from "@/components/fallback";
 
@@ -21,7 +21,7 @@ export const getStoryblokApi = storyblokInit({
     hero: Hero,
     "card grid": CardGrid,
     blogpost: BlogPost,
-    "blogpost-grid": BlogPostGrid,
+    // "blogpost-grid": BlogPostGrid,
     codeblock: CodeBlock,
     "rich-text-blok": RichTextBlok,
   },

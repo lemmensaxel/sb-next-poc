@@ -1,7 +1,7 @@
 import { PrimeReactProvider } from "primereact/api";
 import "./globals.css";
-import Header from "@/components/nestable/header";
-import Footer from "@/components/nestable/footer";
+// import Header from "@/components/nestable/header";
+// import Footer from "@/components/nestable/footer";
 import StoryblokProvider from "@/components/storyblok-provider";
 
 export default function RootLayout({
@@ -15,9 +15,9 @@ export default function RootLayout({
         <html lang="en">
           <body>
             <div className="h-screen py-16">
-              <Header />
+              {/* <Header /> */}
               {children}
-              <Footer />
+              {/* <Footer /> */}
             </div>
           </body>
         </html>
