@@ -4,20 +4,12 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export default async function middleware(request: NextRequest) {
-  // let currentDomain = request.headers.get('x-ms-original-url');
-
   const currentPath = request.nextUrl.pathname;
-  console.log(request.nextUrl);
 
-  console.log(currentPath);
-
+  // https://github.com/vercel/next.js/issues/48169#issuecomment-2297007678
+  // PROBLEM: no data cache in middleware...
   const redirects = (await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?starts_with=redirects/&version=published&token=${process.env.NEXT_PUBLIC_STORYBLOK_TOKEN}`,
-    {
-      next: { tags: ["cms"] },
-
-      cache: "force-cache",
-    }
+    `https://api.storyblok.com/v2/cdn/stories?starts_with=redirects/&version=published&token=${process.env.NEXT_PUBLIC_STORYBLOK_TOKEN}`
   ).then((res) => res.json())) as { stories: ISbStoryData[] };
 
   console.log(redirects);

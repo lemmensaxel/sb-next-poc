@@ -8,6 +8,7 @@ import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
 import BlogPostGrid from "@/components/nestable/blog-post-grid";
 import BlogPost from "@/components/content-type/blog-post";
 import FallbackComponent from "@/components/fallback";
+import Redirect from "@/components/content-type/redirect";
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
@@ -17,6 +18,7 @@ export const getStoryblokApi = storyblokInit({
   },
   components: {
     page: Page,
+    redirect: Redirect,
     card: Card,
     hero: Hero,
     "card grid": CardGrid,
