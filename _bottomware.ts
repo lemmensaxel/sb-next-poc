@@ -9,10 +9,8 @@ export default async function middleware(request: NextRequest) {
   // https://github.com/vercel/next.js/issues/48169#issuecomment-2297007678
   // PROBLEM: no data cache in middleware...
   const redirects = (await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?starts_with=redirects/&version=published&token=${process.env.NEXT_PUBLIC_STORYBLOK_TOKEN}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/redirects`
   ).then((res) => res.json())) as { stories: ISbStoryData[] };
-
-  console.log(redirects);
 
   // TODO: expiry
   const hit = redirects.stories.find(
